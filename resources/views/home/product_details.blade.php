@@ -63,7 +63,26 @@
 
                   <h6 style="padding-bottom: 10px">Available stock: {{ $product->quantity }}</h6>
 
-                  <a href="" class="btn btn-primary">Add to cart</a>
+                  {{-- <a href="" class="btn btn-primary">Add to cart</a> --}}
+
+                  <form action="{{ url('add_cart', $product->id) }}" method="POST">
+
+                     @csrf
+
+                     <div class="row">
+
+                     <div class="col-md-4">
+                        <input type="number" name="quantity" value="1" min="1" style="height: 49px; width: 100px; border-radius: 10px">
+                     </div>
+
+                     <div class="col-md-4">
+                        <input type="submit" value="Add to cart" style="border-radius: 10px">
+                     </div>
+
+                     </div>
+
+                   </form>
+
 
                   <div style="padding-top: 20px">
                     <a href="{{ url('all_products') }}">
