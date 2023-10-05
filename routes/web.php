@@ -58,3 +58,7 @@ route::post('/edit_product_save/{id}', [AdminController::class, 'edit_product_sa
 route::get('/product_details/{id}', [HomeController::class, 'product_details']);
 
 route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
+
+route::get('/remove_item/{id}', [HomeController::class, 'remove_item']);
+
+route::get('/show_cart', [HomeController::class, 'show_cart']);
