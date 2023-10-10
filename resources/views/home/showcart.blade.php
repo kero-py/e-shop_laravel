@@ -57,12 +57,28 @@
             text-align: right;
         }
 
+        .checkout
+        {
+            font-size: 25px;
+            padding-bottom: 15px;
+        }
+
       </style>
    </head>
    <body>
       <div class="hero_area">
          <!-- header section strats -->
         @include('home.header')
+
+        @if(session()->has('message'))
+
+                <div class="alert alert-success">
+
+                    {{ session()->get('message') }}
+                    
+                </div>
+
+        @endif
          <!-- end header section -->
 
       <!-- items in cart table -->
@@ -96,6 +112,12 @@
 
         <div>
             <h1 class="total_price">Total price: £{{ $total_price }}</h1>
+        </div>
+
+        <div>
+            <h1 class="checkout"><< Proceed to checkout >></h1>
+            <a href="{{ url('cash_order') }}" class="btn btn-danger">Cash on delivery</a>
+            <a href="" class="btn btn-danger">Pay by card</a>
         </div>
 
       </div>

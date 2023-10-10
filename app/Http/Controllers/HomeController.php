@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -121,5 +122,44 @@ class HomeController extends Controller
         $cart->delete();
 
         return redirect()->back();
+    }
+
+    public function cash_order()
+    {
+        $user=Auth::user();
+
+        $userid=$user->id;
+
+        /* dd($userid); */
+
+        $data=cart::where('user_id', '=', $userid)->get();
+
+        /* dd($data); */
+
+        foreach($data as $data)
+        {
+            $order=new order;
+
+            $order->name=$data->name;
+            $order->email=$data->email;
+            $order->address=$data->address;
+            $order->phone=$data->phone;
+            $order->user_id=$data->user_id;
+            $order->product_id=$data->product_id;
+            $order->product_title=$data->product_title;
+            $order->price=$data->price;
+            $order->quantity=$data->quantity;
+            $order->image=$data->image;
+            $order->payment_status='cash - pending';
+            $order->delivery_status='processing';
+
+            $order->save();
+
+            $item_id=$data->id;
+            $cart=cart::find($item_id);
+            $cart->delete();
+        }
+
+        return redirect()->back()->with('message', 'Thanks, we have received your order for processing. We shall be in contact with you soon.');
     }
 }

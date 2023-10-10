@@ -62,3 +62,5 @@ route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
 route::get('/remove_item/{id}', [HomeController::class, 'remove_item']);
 
 route::get('/show_cart', [HomeController::class, 'show_cart']);
+
+route::get('/cash_order', [HomeController::class, 'cash_order']);
