@@ -117,7 +117,7 @@
         <div>
             <h1 class="checkout"><< Proceed to checkout >></h1>
             <a href="{{ url('cash_order') }}" class="btn btn-danger">Cash on delivery</a>
-            <a href="" class="btn btn-danger">Pay by card</a>
+            <a href="{{ url('stripe', $total_price) }}" class="btn btn-danger">Pay by card</a>
         </div>
 
       </div>
