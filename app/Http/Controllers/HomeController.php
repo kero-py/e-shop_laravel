@@ -68,7 +68,7 @@ class HomeController extends Controller
 
             $cart->phone=$user->phone;
 
-            $cart->address=$user->phone;
+            $cart->address=$user->address;
 
             $cart->user_id=$user->id;
 

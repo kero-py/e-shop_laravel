@@ -55,6 +55,13 @@ route::get('/edit_product/{id}', [AdminController::class, 'edit_product']);
 
 route::post('/edit_product_save/{id}', [AdminController::class, 'edit_product_save']);
 
+route::get('/show_product', [AdminController::class, 'show_product']);
+
+route::get('/order', [AdminController::class, 'order']);
+
+
+/* Home/Customer routes */
+
 route::get('/product_details/{id}', [HomeController::class, 'product_details']);
 
 route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);

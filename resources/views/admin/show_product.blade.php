@@ -23,7 +23,7 @@
         }
 
         .th_colour {
-            background: orange;
+            background: #ff5722;
         }
 
         .th_elem {
