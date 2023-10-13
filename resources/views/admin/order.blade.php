@@ -23,8 +23,8 @@
         .th_deg
         {
             background: #ff5722;
-            padding-left: 30px;
-            padding-right: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .img_size
@@ -59,6 +59,7 @@
                         <th class="th_deg">Delivery Status</th>
                         <th class="th_deg">Product ID</th>
                         <th class="th_deg">Image</th>
+                        <th class="th_deg">Actioned</th>
                     </tr>
 
                     @foreach($order as $order)
@@ -76,6 +77,17 @@
                         <td>{{ $order->product_id }}</td>
                         <td>
                             <img class="img_size" src="/product/{{ $order->image }}">
+                        </td>
+
+                        <td>
+                            @if($order->delivery_status=='processing')
+                           
+                            <a href="{{ url('actioned', $order->id) }}" onclick="return confirm('Has this item been delivered?')" class="btn btn-primary">Yes   
+                                
+                            @else
+                                <p style="color: #24d33a">Actioned</p>
+                            
+                            @endif
                         </td>
                     </tr>
 

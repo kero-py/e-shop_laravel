@@ -59,6 +59,8 @@ route::get('/show_product', [AdminController::class, 'show_product']);
 
 route::get('/order', [AdminController::class, 'order']);
 
+route::get('/actioned/{id}', [AdminController::class, 'actioned']);
+
 
 /* Home/Customer routes */
 
