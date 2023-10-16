@@ -60,6 +60,7 @@
                         <th class="th_deg">Product ID</th>
                         <th class="th_deg">Image</th>
                         <th class="th_deg">Actioned</th>
+                        <th class="th_deg">Print to PDF</th>
                     </tr>
 
                     @foreach($order as $order)
@@ -88,6 +89,10 @@
                                 <p style="color: #24d33a">Actioned</p>
                             
                             @endif
+                        </td>
+
+                        <td>
+                            <a href="{{ url('print_pdf', $order->id) }}" class="btn btn-secondary">Print PDF</a>
                         </td>
                     </tr>
 

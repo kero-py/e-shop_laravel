@@ -61,6 +61,8 @@ route::get('/order', [AdminController::class, 'order']);
 
 route::get('/actioned/{id}', [AdminController::class, 'actioned']);
 
+route::get('/print_pdf/{id}', [AdminController::class, 'print_pdf']);
+
 
 /* Home/Customer routes */
 
