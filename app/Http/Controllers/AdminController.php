@@ -146,4 +146,18 @@ class AdminController extends Controller
 
         return $pdf->download('order_details');
     }
+
+    public function search_order(Request $request)
+    {
+        $searchQuery=$request->search;
+        $order=order::where('name', 'LIKE', "%$searchQuery%")
+        ->orWhere('phone', "%$searchQuery%")
+        ->orWhere('address', 'LIKE', "%$searchQuery%")
+        ->orWhere('product_title', 'LIKE', "%$searchQuery%")
+        ->orWhere('payment_status', 'LIKE', "%$searchQuery%")
+        ->orWhere('delivery_status', 'LIKE', "%$searchQuery%")
+        ->orWhere('product_id', 'LIKE', "%$searchQuery")->get();
+
+        return view('admin.order', compact('order'));
+    }
 }

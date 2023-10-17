@@ -46,6 +46,18 @@
             <div class="content-wrapper">
                 <h1 class="orders_deg">All Orders <br><br></h1>
 
+            <div style="padding-left: 500px; padding-bottom: 30px;" >
+
+                <form action="{{ url('search') }}" method="GET">
+
+                    @csrf
+
+                    <input style="color: black" type="text" name="search" placeholder="search for an order...">
+                    <input type="submit" value="Search" class="btn btn-outline-primary">
+                </form>
+
+            </div>
+
                 <table class="table_deg">
                     <tr>
                         <th class="th_deg">Name</th>
@@ -63,7 +75,7 @@
                         <th class="th_deg">Print to PDF</th>
                     </tr>
 
-                    @foreach($order as $order)
+                    @forelse($order as $order)
 
                     <tr>
                         <td>{{ $order->name }}</td>
@@ -96,7 +108,12 @@
                         </td>
                     </tr>
 
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="20">Order not found. Please try again.</td>
+                    </tr>
+
+                    @endforelse
                 </table>
             </div>
         </div>
