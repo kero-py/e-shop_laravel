@@ -45,8 +45,8 @@
 
         .img_deg
         {
-            height: 200px;
-            width: 200px;
+            height: 100px;
+            width: 150px;
         }
 
         .total_price
@@ -88,37 +88,35 @@
                 <th class="th_deg">Product name</th>
                 <th class="th_deg">Quantity</th>
                 <th class="th_deg">Price</th>
+                <th class="th_deg">Delivery status</th>
+                <th class="th_deg">Payment status</th>
                 <th class="th_deg">Image</th>
                 <th class="th_deg">Action</th>
             </tr>
 
-            <?php $total_price=0; ?>
-
-            @foreach ($cart as $cart)
+            @foreach ($order as $order)
 
             
             <tr>
-                <td>{{ $cart->product_title }}</td>
-                <td>{{ $cart->quantity}}</td>
-                <td>£{{ $cart->price }}</td>
-                <td><img class="img_deg" src="/product/{{ $cart->image }}"></td>
-                <td><a href="{{ url('/remove_item', $cart->id) }}" onclick="return confirm('Are you sure you want to remove this item?')" class="btn btn-danger">Remove item</a></td>
+                <td>{{ $order->product_title }}</td>
+                <td>{{ $order->quantity}}</td>
+                <td>£{{ $order->price }}</td>
+                <td>{{ $order->delivery_status }}</td>
+                <td>{{ $order->payment_status }}</td>
+                <td><img class="img_deg" src="/product/{{ $order->image }}"></td> 
+                <td>
+                    @if($order->delivery_status=='processing')
+                    <a href="{{ url('/cancel_order', $order->id) }}" onclick="return confirm('Are you sure you want to cancel this order?')" class="btn btn-danger">Cancel order</a>
+                        
+                    @else
+                        <p></p>
+                    @endif
+                </td>
             </tr>
 
-            <?php $total_price=$total_price + $cart->price ?>
-
             @endforeach
+
         </table>
-
-        <div>
-            <h1 class="total_price">Total price: £{{ $total_price }}</h1>
-        </div>
-
-        <div>
-            <h1 class="checkout"><< Proceed to checkout >></h1>
-            <a href="{{ url('cash_order') }}" class="btn btn-danger">Cash on delivery</a>
-            <a href="{{ url('stripe', $total_price) }}" class="btn btn-danger">Pay by card</a>
-        </div>
 
       </div>
       <!-- footer start -->

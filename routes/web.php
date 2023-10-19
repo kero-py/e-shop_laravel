@@ -74,7 +74,11 @@ route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
 
 route::get('/remove_item/{id}', [HomeController::class, 'remove_item']);
 
+route::get('/cancel_order/{id}', [HomeController::class, 'cancel_order']);
+
 route::get('/show_cart', [HomeController::class, 'show_cart']);
+
+route::get('/show_order', [HomeController::class, 'show_order']);
 
 route::get('/cash_order', [HomeController::class, 'cash_order']);
 

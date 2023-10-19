@@ -132,11 +132,37 @@ class HomeController extends Controller
         }
     }
 
+    public function show_order()
+    {
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $order=order::where('user_id', '=', $id)->get(); 
+            return view('home.order', compact('order'));
+        }
+
+        else
+        {
+            return redirect('login');
+        }
+    }
+
     public function remove_item($id)
     {
         $cart=cart::find($id);
 
         $cart->delete();
+
+        return redirect()->back();
+    }
+
+    public function cancel_order($id)
+    {
+        $order=order::find($id);
+
+        $order->delivery_status='cancelled';
+
+        $order->save();
 
         return redirect()->back();
     }
