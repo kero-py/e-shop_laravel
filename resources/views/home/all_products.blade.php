@@ -29,9 +29,19 @@
         <div class="container">
            <div class="heading_container heading_center">
               <h2>
-                 Our <span>products</span>
+               Our <a href="{{ url('all_products') }}"><span>products</span></a>
               </h2>
+              <br>
+              <br>
+              <form action="{{ url('search_product') }}" method="GET">
+
+               @csrf
+
+               <input style= "margin-top: 25px; width: 500px;" type="text" name="search" placeholder="Search entire product catalogue...">
+               <input type="submit" value="search">
+            </form>
            </div>
+
            <div class="row">
     
              @foreach($product as $products)
@@ -78,16 +88,17 @@
                     </div>
                  </div>
               </div>
-              
+            
              @endforeach
     
              {{-- {!! $product->withQueryString()->links('pagination::bootstrap-5') !!} --}}
-    
-             <div class="btn-box">
-                <a href={{ url('/') }}>
-                <-- Return to Home page
-                </a>
-             </div>
+             
+             <div style="align-self: flex-end;">
+               <a href={{ url('/') }}>
+               <-- Return to Home page
+               </a>
+            </div>
+             
         </div>
      </section>
       <!-- end product section -->

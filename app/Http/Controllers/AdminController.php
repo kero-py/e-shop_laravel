@@ -156,7 +156,7 @@ class AdminController extends Controller
         ->orWhere('product_title', 'LIKE', "%$searchQuery%")
         ->orWhere('payment_status', 'LIKE', "%$searchQuery%")
         ->orWhere('delivery_status', 'LIKE', "%$searchQuery%")
-        ->orWhere('product_id', 'LIKE', "%$searchQuery")->get();
+        ->orWhere('product_id', "$searchQuery")->get();
 
         return view('admin.order', compact('order'));
     }
