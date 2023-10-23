@@ -87,3 +87,7 @@ route::get('/stripe/{total_price}', [HomeController::class, 'stripe']);
 Route::post('stripe/{total_price}', [HomeController::class, 'stripePost'])->name('stripe.post');
 
 route::get('/search_product', [HomeController::class, 'search_product']);
+
+route::post('/add_comment', [HomeController::class, 'add_comment']);
+
+route::post('/add_reply', [HomeController::class, 'add_reply']);

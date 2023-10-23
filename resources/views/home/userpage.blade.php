@@ -20,6 +20,8 @@
       <link href="home/css/style.css" rel="stylesheet" />
       <!-- responsive style -->
       <link href="home/css/responsive.css" rel="stylesheet" />
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    </head>
    <body>
       <div class="hero_area">
@@ -48,6 +50,80 @@
       <!-- client section -->
       @include('home.client')
       <!-- end client section -->
+      <!-- customer testimonials/comments -->
+
+      <div class="heading_container heading_center">
+
+         <h1 style="font-size:38px; padding-bottom: 15px;">Send us your comments!</h1>
+
+         <form action="{{ url('add_comment') }}" method="POST">
+
+            @csrf
+
+            <textarea name="comment" style="resize: none;" placeholder="Please tell use what you think..."></textarea>
+
+           <input type="submit" class="btn btn-primary" value="comment">
+         </form>
+
+      </div>
+
+      <div style="padding-left: 20%; padding-top: 20px;">
+         
+         <h1 style="font-size: 38px; padding-top: 20px; padding-bottom: 20px;">Others also commented:</h1>
+      
+         @foreach($comment as $comment)
+
+         <div style="padding-bottom: 20px;">
+
+            <b>{{ $comment->name }}</b><br><br>
+            <p>{{ $comment->comment }}</p>
+            <a style="color: #f7444e; padding-top: 15px;" href="javascript::void(0);" onclick="reply(this)" comment_id="{{ $comment->id }}">Reply</a>
+
+            @foreach($reply as $response)
+
+            @if($response->comment_id==$comment->id)
+
+            <div style="padding-left: 3%; padding-bottom: 10px; padding-bottom: 10px;">
+               <b>{{ $response->name }}</b>
+               <p>{{ $response->reply }}</p>
+               <a style="color: #f7444e; padding-top: 15px;" href="javascript::void(0);" onclick="reply(this)" comment_id="{{ $comment->id }}">Reply</a>
+            </div>
+
+            @endif
+            @endforeach
+         </div>
+
+         @endforeach
+
+         <!-- Reply textarea -->
+
+         
+
+         @csrf
+
+         <div style="padding-top: 20px; display: none;" class="replyDiv">
+
+            <form action="{{ url('add_reply') }}" method="POST">
+
+            @csrf
+
+            <input type="text" id="commentID" name="commentID" hidden="">
+            <textarea name="reply" style="height: 100px; width 100px; margin-bottom: 5px; resize: none;" placeholder="write a reply..."></textarea>
+            <br><button type="submit" style="background-color: dodgerblue; color: white; padding: 10px; border-radius: 10px;">Reply</button>
+            <a href="javascript::void(0);" class="btn" onClick="reply_close(this)">Cancel</a>
+
+         </form>
+         </div>
+
+      
+      </div>
+
+      
+
+      </div>
+
+
+      <!-- end customer testimonials/comments -->
       <!-- footer start -->
       @include('home.footer')
       <!-- footer end -->
@@ -58,6 +134,37 @@
          
          </p>
       </div>
+
+      <script type="text/javascript">
+
+         function reply(caller)
+         {
+            document.getElementById('commentID').value=$(caller).attr('comment_id');
+            $('.replyDiv').insertAfter($(caller));
+            $('.replyDiv').show();
+
+         }
+
+         function reply_close(caller)
+         {
+
+            $('.replyDiv').hide();
+
+         }
+      </script>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function(event) { 
+       var scrollpos = localStorage.getItem('scrollpos');
+       if (scrollpos) window.scrollTo(0, scrollpos);
+   });
+
+   window.onbeforeunload = function(e) {
+       localStorage.setItem('scrollpos', window.scrollY);
+   };
+</script>
+
+
       <!-- jQery -->
       <script src="home/js/jquery-3.4.1.min.js"></script>
       <!-- popper js -->
