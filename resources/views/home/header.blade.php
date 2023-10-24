@@ -13,18 +13,18 @@
                <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
                    <ul class="dropdown-menu">
-                      <li><a href="about.html">About</a></li>
-                      <li><a href="testimonial.html">Testimonial</a></li>
+                      <li><a href="{{ url('coming_soon') }}">About</a></li>
+                      <li><a href="{{ url('coming_soon') }}">Testimonial</a></li>
                    </ul>
                 </li>
                 <li class="nav-item">
                    <a class="nav-link" href="{{ url('all_products') }}">Products</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link" href="blog_list.html">Blog</a>
+                   <a class="nav-link" href="{{ url('coming_soon') }}">Blog</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link" href="contact.html">Contact</a>
+                   <a class="nav-link" href="{{ url('coming_soon') }}">Contact</a>
                 </li>
 
                 <li class="nav-item">

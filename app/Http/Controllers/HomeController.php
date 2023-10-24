@@ -333,6 +333,11 @@ class HomeController extends Controller
             return redirect('login');
         }
     }
+
+    public function coming_soon()
+    {
+        return view('home.coming_soon');
+    }
 }
 
 
