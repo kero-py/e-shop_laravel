@@ -67,26 +67,26 @@
 
       </div>
 
-      <div style="padding-left: 20%; padding-top: 20px;">
-         
-         <h1 style="font-size: 38px; padding-top: 20px; padding-bottom: 20px;">Others also commented:</h1>
+      <h1 style="font-size: 38px; padding-top: 50px; padding-left: 20%; padding-bottom: 20px;">Others also commented:</h1>
+
+      <div style= "height: 300px; width: 80%; padding-left: 20%; padding-top: 20px; overflow: auto;">
       
          @foreach($comment as $comment)
 
-         <div style="padding-bottom: 20px;">
+         <div style="padding-bottom: 15px;">
 
-            <b>{{ $comment->name }}</b><br><br>
+            <b>{{ $comment->name }}</b><br>
             <p>{{ $comment->comment }}</p>
-            <a style="color: #f7444e; padding-top: 15px;" href="javascript::void(0);" onclick="reply(this)" comment_id="{{ $comment->id }}">Reply</a>
+            <a style="color: #f7444e; padding-bottom: 15px;" href="javascript::void(0);" onclick="reply(this)" comment_id="{{ $comment->id }}">Reply</a>
 
             @foreach($reply as $response)
 
             @if($response->comment_id==$comment->id)
-
-            <div style="padding-left: 3%; padding-bottom: 10px; padding-bottom: 10px;">
+   
+            <div style="padding-left: 3%; padding-top: 15px;">
                <b>{{ $response->name }}</b>
                <p>{{ $response->reply }}</p>
-               <a style="color: #f7444e; padding-top: 15px;" href="javascript::void(0);" onclick="reply(this)" comment_id="{{ $comment->id }}">Reply</a>
+               <a style="color: #f7444e; padding-top: 20px;" href="javascript::void(0);" onclick="reply(this)" comment_id="{{ $comment->id }}">Reply</a>
             </div>
 
             @endif
@@ -96,10 +96,6 @@
          @endforeach
 
          <!-- Reply textarea -->
-
-         
-
-         @csrf
 
          <div style="padding-top: 20px; display: none;" class="replyDiv">
 
@@ -116,12 +112,10 @@
          </div>
 
       
-      </div>
-
-      
+         </div>
 
       </div>
-
+   
 
       <!-- end customer testimonials/comments -->
       <!-- footer start -->
