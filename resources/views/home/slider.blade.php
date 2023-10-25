@@ -11,10 +11,11 @@
                       <div class="detail-box">
                          <h1>
                             <span>
-                            Sale 20% Off
+                            Sale! 
                             </span>
                             <br>
-                            On Everything
+                              Up to 50% off
+                            <br>
                          </h1>
                          <p>
                             Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.

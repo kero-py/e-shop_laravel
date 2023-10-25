@@ -22,7 +22,7 @@
       <link href="home/css/responsive.css" rel="stylesheet" />
    </head>
    <body>
-      
+      @include('home.header')
       <!-- product section -->
       {{-- @include('home.product') --}}
       <section class="product_section layout_padding">
@@ -53,9 +53,23 @@
                           <a href="{{ url('product_details', $products->id) }}" class="option1">
                             {{ $products->title}}
                           </a>
-                          <a href="" class="option2">
-                          Buy Now
-                          </a>
+                          <form action="{{ url('add_cart', $products->id) }}" method="POST">
+
+                           @csrf
+   
+                           <div class="row">
+   
+                           <div class="col-md-4">
+                              <input type="number" name="quantity" value="1" min="1" style="height: 49px; width: 100px; border-radius: 10px">
+                           </div>
+   
+                           <div class="col-md-4">
+                              <input type="submit" value="Add to cart" style="border-radius: 10px">
+                           </div>
+   
+                           </div>
+   
+                         </form>
                        </div>
                     </div>
                     <div class="img-box">
