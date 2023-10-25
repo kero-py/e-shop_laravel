@@ -60,7 +60,7 @@
 
             @csrf
 
-            <textarea name="comment" style="resize: none;" placeholder="Please tell use what you think..."></textarea>
+            <textarea name="comment" style="resize: none;" placeholder="Please tell us what you think..."></textarea>
 
            <input type="submit" class="btn btn-primary" value="comment">
          </form>
