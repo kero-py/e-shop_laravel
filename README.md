@@ -1,3 +1,11 @@
+# e-shop_laravel
+
+Clothing e-commerce website made using PHP Laravel - with features such as admin (for shop management), login/register, search products, add to cart, checkout, & view account (orders). Based on a tutorial by Web Tech Knowledge. 
+
+<br>
+<br>
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
