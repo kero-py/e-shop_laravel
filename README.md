@@ -1,6 +1,6 @@
 # e-shop_laravel
 
-Clothing e-commerce website made using PHP Laravel - with features such as admin (for shop management), login/register, search products, add to cart, checkout, & view account (orders). Based on a tutorial by Web Tech Knowledge. 
+Clothing e-commerce website made using PHP Laravel with MySQL as backend database - with features such as admin (for shop management), login/register, search products, add to cart, checkout, & view account (orders). Based on a tutorial by Web Tech Knowledge. 
 
 <br>
 <br>
